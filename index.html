@@ -988,6 +988,77 @@
   .vs-titulo, .vs-acto-titulo, .parte-titulo, .cap-titulo, .encabezado-seccion h2{text-wrap:balance;}
   @media (max-width:380px){ .vs-portal .vs-titulo{font-size:1.62rem;} }
 
+
+  /* ================= Lo que veo en ti: constelación de Libra ================= */
+  .lb-cielo{
+    position:relative;max-width:460px;margin:0 auto;padding:22px 14px 20px;border-radius:18px;overflow:hidden;
+    background:radial-gradient(ellipse 80% 50% at 50% 0%, rgba(195,160,90,0.14), transparent 70%), linear-gradient(180deg, #0f1b15, #0a120e);
+    border:1px solid rgba(195,160,90,0.45);box-shadow:0 26px 54px -26px rgba(20,35,27,0.7), inset 0 0 60px rgba(195,160,90,0.05);
+  }
+  .lb-fondo{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+  .lb-fondo .estrella-cosmos{background:#f4eedd;}
+  .lb-rotulo{position:relative;text-align:center;font-style:italic;font-size:0.82rem;letter-spacing:0.08em;color:#c3a05a;margin:0 0 4px;}
+  .lb-mapa{position:relative;width:100%;aspect-ratio:5 / 6.3;}
+  .lb-lineas{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;}
+  .lb-linea{
+    fill:none;stroke:rgba(195,160,90,0.3);stroke-width:1;stroke-dasharray:2 5;stroke-linecap:round;
+    vector-effect:non-scaling-stroke;transition:stroke 0.9s ease, stroke-dasharray 0.9s ease;
+  }
+  .lb-linea.lb-viva{stroke:#dfbf75;stroke-width:1.5;stroke-dasharray:none;filter:drop-shadow(0 0 3px rgba(223,191,117,0.55));}
+  .lb-estrella{
+    position:absolute;transform:translate(-50%,-50%);width:46px;height:46px;padding:0;margin:0;
+    background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-family:var(--serif-body);-webkit-tap-highlight-color:transparent;
+  }
+  .lb-punto{
+    width:11px;height:11px;border-radius:50%;background:var(--star-color, #c3a05a);display:block;
+    box-shadow:0 0 0 0 rgba(195,160,90,0.5);transition:box-shadow 0.4s ease, background 0.4s ease, transform 0.3s ease;
+    animation:lb-pulso 2.6s ease-in-out infinite;animation-delay:var(--sd,0s);
+  }
+  @keyframes lb-pulso{0%,100%{box-shadow:0 0 0 0 rgba(195,160,90,0.45);}50%{box-shadow:0 0 0 9px rgba(195,160,90,0);}}
+  .lb-estrella.lb-tocada .lb-punto{animation:none;background:#f4eedd;box-shadow:0 0 0 4px rgba(195,160,90,0.25), 0 0 14px 2px rgba(223,191,117,0.7);}
+  .lb-estrella.lb-activa .lb-punto{transform:scale(1.35);box-shadow:0 0 0 8px rgba(195,160,90,0.28), 0 0 22px 4px rgba(223,191,117,0.85);}
+  .lb-estrella:hover .lb-punto, .lb-estrella:focus-visible .lb-punto{transform:scale(1.3);}
+  .lb-estrella:focus-visible{outline:1px dashed #c3a05a;outline-offset:2px;border-radius:50%;}
+  .lb-etiqueta{
+    position:absolute;width:max-content;max-width:92px;font-style:italic;font-size:0.8rem;line-height:1.25;
+    color:rgba(238,230,211,0.72);transition:color 0.5s ease;pointer-events:none;
+    background:rgba(11,19,15,0.86);padding:1px 5px;border-radius:6px;
+  }
+  .lb-estrella.lb-tocada .lb-etiqueta{color:#dfbf75;}
+  .lb-r .lb-etiqueta{left:calc(50% + 11px);top:50%;transform:translateY(-50%);text-align:left;}
+  .lb-l .lb-etiqueta{right:calc(50% + 11px);top:50%;transform:translateY(-50%);text-align:right;}
+  .lb-t .lb-etiqueta{bottom:calc(50% + 10px);left:50%;transform:translateX(-50%);text-align:center;}
+  .lb-b .lb-etiqueta{top:calc(50% + 10px);left:50%;transform:translateX(-50%);text-align:center;}
+  .lb-pie{position:relative;text-align:center;font-style:italic;font-size:0.76rem;line-height:1.5;color:rgba(238,230,211,0.5);margin:2px auto 12px;max-width:34ch;}
+  .lb-detalle{
+    position:relative;min-height:112px;border-top:1px solid rgba(195,160,90,0.25);padding:16px 8px 2px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  }
+  .lb-nombre{font-style:italic;font-size:0.8rem;letter-spacing:0.03em;color:#c3a05a;margin:0;min-height:1.2em;}
+  .lb-texto{font-style:italic;line-height:1.7;font-size:1rem;color:#eee6d3;margin:0;}
+  .lb-detalle .lb-nombre, .lb-detalle .lb-texto{transition:opacity 0.4s ease, transform 0.4s ease;}
+  .lb-detalle.lb-cambia .lb-nombre, .lb-detalle.lb-cambia .lb-texto{opacity:0;transform:translateY(5px);}
+  .lb-completa{position:relative;text-align:center;font-style:italic;font-size:0.95rem;color:#dfbf75;margin:14px 0 0;animation:lb-aparece 1s ease both;}
+  @keyframes lb-aparece{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  .lb-cielo.lb-armada .lb-lineas{filter:drop-shadow(0 0 6px rgba(223,191,117,0.35));}
+
+  /* tarjetas: quién es Libra / Libra y Aries */
+  .lb-info{display:flex;flex-direction:column;gap:18px;max-width:520px;margin:38px auto 0;}
+  .lb-card{background:var(--forest-mid);border:1px solid var(--forest-line);border-radius:6px 16px 16px 16px;padding:24px 20px 10px;text-align:left;}
+  .lb-card-cab{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+  .lb-glifos{display:flex;align-items:center;gap:4px;flex-shrink:0;color:#8f7842;}
+  .lb-glifo{width:34px;height:34px;display:block;}
+  .lb-amp{font-style:italic;font-size:1rem;color:#8f7842;}
+  .lb-card h3{font-family:var(--serif-display);font-style:italic;font-weight:500;font-size:1.3rem;line-height:1.2;color:#1f3326;margin:0;}
+  .lb-sub{font-style:italic;font-size:0.82rem;color:var(--gold-dim);margin:3px 0 0;}
+  .lb-card p.lb-p{font-style:italic;line-height:1.78;color:var(--ivory-dim);font-size:1rem;margin:0 0 14px;}
+  @media (max-width:380px){ .lb-cielo{padding:18px 10px 16px;} .lb-etiqueta{font-size:0.76rem;max-width:84px;} .lb-card{padding:20px 16px 6px;} }
+  @media (prefers-reduced-motion: reduce){
+    .lb-punto{animation:none;} .lb-linea{transition:none;} .lb-completa{animation:none;}
+    .lb-detalle .lb-nombre, .lb-detalle .lb-texto{transition:none;}
+  }
+
 </style>
 </head>
 <body class="bloqueado">
@@ -1078,15 +1149,27 @@
       <p class="kicker">Pequeñas verdades</p>
       <h2>Lo que veo en ti</h2>
     </div>
-    <p class="veo-intro">Seis cosas que no siempre te digo. Toca cada una.</p>
-    <div class="veo-lista">
-        <details class="veo-item" style="--star-color:#c3a05a"><summary><span>Escuchas</span><span class="mas" aria-hidden="true">+</span></summary><p>No escuchas para responder: escuchas para entender. Contigo, lo que digo llega a un lugar seguro y se queda ahí, sin ser juzgado.</p></details>
-        <details class="veo-item" style="--star-color:#b3835f"><summary><span>Eres delicada</span><span class="mas" aria-hidden="true">+</span></summary><p>Sientes hondo y con una delicadeza que no se aprende. A veces pesa, pero es justo lo que te hace tan cercana y tan capaz de comprender a los demás.</p></details>
-        <details class="veo-item" style="--star-color:#8b81a8"><summary><span>Entiendes a las personas</span><span class="mas" aria-hidden="true">+</span></summary><p>Te mueve entender por qué somos como somos. Esa curiosidad tuya por el comportamiento humano es una forma de cuidar: miras con atención, con respeto y sin prisa.</p></details>
-        <details class="veo-item" style="--star-color:#c98a5c"><summary><span>Eres auténtica</span><span class="mas" aria-hidden="true">+</span></summary><p>No tienes una versión distinta para cada ocasión. Eres la misma en lo grande y en lo pequeño, sin pedir permiso y sin imitar a nadie. Y sin proponértelo, me enseñas a ser más yo.</p></details>
-        <details class="veo-item" style="--star-color:#9a8563"><summary><span>Confías</span><span class="mas" aria-hidden="true">+</span></summary><p>Que me cuentes lo que me cuentas es uno de los regalos más grandes que me han dado. Gracias por poner lo que sientes en mis manos.</p></details>
-        <details class="veo-item" style="--star-color:#e0b25f"><summary><span>Estás</span><span class="mas" aria-hidden="true">+</span></summary><p>Aunque pasen días sin hablarnos, siempre estás. Esa constancia silenciosa vale más que cualquier mensaje a todas horas.</p></details>
-        </div>
+    <p class="veo-intro">Seis cosas que no siempre te digo. Cada una es una estrella de tu constelación: Libra, la balanza. Toca cada estrella y ve armándola.</p>
+    
+    <div class="lb-cielo">
+      <div class="lb-fondo" id="lb-fondo" aria-hidden="true"></div>
+      <p class="lb-rotulo">♎︎ Libra · la balanza</p>
+      <div class="lb-mapa" id="lb-mapa">
+        <svg class="lb-lineas" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line class="lb-linea" data-a="0" data-b="1" x1="46.9" y1="15.0" x2="82.0" y2="37.9" fill="none"/><line class="lb-linea" data-a="1" data-b="3" x1="82.0" y1="37.9" x2="64.1" y2="69.6" fill="none"/><line class="lb-linea" data-a="3" data-b="2" x1="64.1" y1="69.6" x2="22.2" y2="33.6" fill="none"/><line class="lb-linea" data-a="2" data-b="0" x1="22.2" y1="33.6" x2="46.9" y2="15.0" fill="none"/><line class="lb-linea" data-a="2" data-b="4" x1="22.2" y1="33.6" x2="21.5" y2="76.0" fill="none"/><line class="lb-linea" data-a="4" data-b="5" x1="21.5" y1="76.0" x2="17.0" y2="90.0" fill="none"/></svg>
+        <button type="button" class="lb-estrella lb-r" data-i="0" data-nombre="β Librae · Zubeneschamali — «la garra del norte»" data-texto="No escuchas para responder: escuchas para entender. Contigo, lo que digo llega a un lugar seguro y se queda ahí, sin ser juzgado." style="left:46.9%;top:15.0%;--star-color:#c3a05a;--sd:0.00s" aria-label="Escuchas"><span class="lb-punto"></span><span class="lb-etiqueta">Escuchas</span></button><button type="button" class="lb-estrella lb-b" data-i="1" data-nombre="α² Librae · Zubenelgenubi — «la garra del sur»" data-texto="Sientes hondo y con una delicadeza que no se aprende. A veces pesa, pero es justo lo que te hace tan cercana y tan capaz de comprender a los demás." style="left:82.0%;top:37.9%;--star-color:#b3835f;--sd:0.35s" aria-label="Eres delicada"><span class="lb-punto"></span><span class="lb-etiqueta">Eres delicada</span></button><button type="button" class="lb-estrella lb-t" data-i="2" data-nombre="γ Librae · Zubenelhakrabi — «la garra del escorpión»" data-texto="Te mueve entender por qué somos como somos. Esa curiosidad tuya por el comportamiento humano es una forma de cuidar: miras con atención, con respeto y sin prisa." style="left:22.2%;top:33.6%;--star-color:#8b81a8;--sd:0.70s" aria-label="Entiendes a las personas"><span class="lb-punto"></span><span class="lb-etiqueta">Entiendes a las personas</span></button><button type="button" class="lb-estrella lb-r" data-i="3" data-nombre="σ Librae · Brachium — «el brazo»" data-texto="No tienes una versión distinta para cada ocasión. Eres la misma en lo grande y en lo pequeño, sin pedir permiso y sin imitar a nadie. Y sin proponértelo, me enseñas a ser más yo." style="left:64.1%;top:69.6%;--star-color:#c98a5c;--sd:1.05s" aria-label="Eres auténtica"><span class="lb-punto"></span><span class="lb-etiqueta">Eres auténtica</span></button><button type="button" class="lb-estrella lb-r" data-i="4" data-nombre="υ Librae — en la cola de la balanza" data-texto="Que me cuentes lo que me cuentas es uno de los regalos más grandes que me han dado. Gracias por poner lo que sientes en mis manos." style="left:21.5%;top:76.0%;--star-color:#9a8563;--sd:1.40s" aria-label="Confías"><span class="lb-punto"></span><span class="lb-etiqueta">Confías</span></button><button type="button" class="lb-estrella lb-r" data-i="5" data-nombre="τ Librae — en la cola de la balanza" data-texto="Aunque pasen días sin hablarnos, siempre estás. Esa constancia silenciosa vale más que cualquier mensaje a todas horas." style="left:17.0%;top:90.0%;--star-color:#e0b25f;--sd:1.75s" aria-label="Estás"><span class="lb-punto"></span><span class="lb-etiqueta">Estás</span></button>
+      </div>
+      <p class="lb-pie">Las estrellas α y β forman la viga de la balanza; γ y σ, sus platillos.</p>
+      <div class="lb-detalle" id="lb-detalle" aria-live="polite">
+        <p class="lb-nombre" id="lb-nombre"></p>
+        <p class="lb-texto" id="lb-texto">Toca una estrella para descubrir algo tuyo.</p>
+      </div>
+      <p class="lb-completa" id="lb-completa" hidden>Seis estrellas, una balanza en equilibrio: así te veo.</p>
+    </div>
+    <div class="lb-info">
+      <article class="lb-card revelar"><div class="lb-card-cab"><div class="lb-glifos"><svg class="lb-glifo" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 25h22"/><path d="M5 19h6.5c0-11 9-11 9 0H27"/></svg></div><div><h3>Libra, la balanza</h3><p class="lb-sub">23 de septiembre – 22 de octubre</p></div></div><p class="lb-p">Libra es una balanza que no pesa cosas: pesa silencios, miradas, palabras a medias. Y lo hace con tanta delicadeza que quien se acerca siente, sin saber por qué, que algo dentro de sí se acomoda.</p><p class="lb-p">Es el aire de una habitación cerrada: no se ve, pero cuando falta se nota. Es la hora en que el día y la noche se encuentran a mitad de camino y deciden no pelear. Es Venus susurrando que todo lo hermoso nace de lo que se sostiene con cuidado.</p><p class="lb-p">Libra escucha las dos orillas del río antes de cruzarlo. Y su arte, casi secreto, es hacer del equilibrio un lugar donde los demás pueden descansar.</p><p class="lb-p">Mira tus seis estrellas: la que escucha, la que es delicada, la que entiende, la que es auténtica, la que confía y la que está. Juntas dibujan una balanza que, cuando se inclina, siempre encuentra cómo volver a su centro.</p></article>
+      <article class="lb-card revelar"><div class="lb-card-cab"><div class="lb-glifos"><svg class="lb-glifo" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 25h22"/><path d="M5 19h6.5c0-11 9-11 9 0H27"/></svg><span class="lb-amp">&amp;</span><svg class="lb-glifo" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 27V12C16 5 7 4 7 11"/><path d="M16 12C16 5 25 4 25 11"/></svg></div><div><h3>Libra y Aries</h3><p class="lb-sub">dos equinoccios, un mismo círculo</p></div></div><p class="lb-p">El año tiene dos puertas donde el día y la noche se detienen a mirarse de frente, iguales, sin ganarse. Por la primera entra la luz; se llama Aries. Por la segunda la luz empieza a irse despacio, sin herir a nadie; se llama Libra.</p><p class="lb-p">Aries es el primer verso del poema: nace sin pedir permiso, con la urgencia de quien tiene todo por decir. Libra es el silencio entre los versos, ese lugar donde las palabras respiran y se vuelven música. Sin el verso, el silencio es vacío; sin el silencio, el verso es solo ruido.</p><p class="lb-p">Por eso el cielo los puso frente a frente, como los dos extremos de un diámetro. Un círculo no sabe que es círculo hasta que alguien lo cruza de lado a lado: Aries se lanza desde una orilla; Libra lo espera en la otra, con los brazos abiertos de una balanza.</p><p class="lb-p">Uno es el fuego que descubre el camino. El otro es el viento que le enseña a cuidarse mientras arde. Y entre los dos nace algo que ninguno podría encender solo: una luz que no deslumbra y tampoco se apaga.</p><p class="lb-p">Quizás por eso, cuando estamos juntas, el mundo se acomoda: yo llego con la primera palabra, y tú con el silencio exacto que la vuelve verdad.</p></article>
+    </div>
+
   </section>
 
   <section id="historia" class="seccion-oscura">
@@ -2244,6 +2327,48 @@
       var previo = leerLocal();
       if(previo && previo.fechaTexto && previo.horaTexto){ mostrarConfirmado(previo); }
     }catch(errRX){ /* si algo falla aquí, el resto de la página sigue funcionando */ }
+  })();
+
+
+  // ================= Lo que veo en ti: se arma la constelación de Libra =================
+  (function(){
+    try{
+      var mapa = document.getElementById('lb-mapa');
+      if(!mapa) return;
+      var cielo = mapa.closest('.lb-cielo');
+      var estrellas = Array.prototype.slice.call(mapa.querySelectorAll('.lb-estrella'));
+      var lineas = Array.prototype.slice.call(mapa.querySelectorAll('.lb-linea'));
+      var detalle = document.getElementById('lb-detalle');
+      var nombre = document.getElementById('lb-nombre'), texto = document.getElementById('lb-texto');
+      var completa = document.getElementById('lb-completa');
+      var tocadas = {};
+
+      if(typeof llenarCielo === 'function'){ llenarCielo(document.getElementById('lb-fondo'), 30); }
+
+      function actualizarLineas(){
+        lineas.forEach(function(l){
+          if(tocadas[l.getAttribute('data-a')] && tocadas[l.getAttribute('data-b')]){ l.classList.add('lb-viva'); }
+        });
+      }
+      estrellas.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          estrellas.forEach(function(x){ x.classList.remove('lb-activa'); });
+          btn.classList.add('lb-activa', 'lb-tocada');
+          tocadas[btn.getAttribute('data-i')] = true;
+          actualizarLineas();
+          detalle.classList.add('lb-cambia');
+          setTimeout(function(){
+            nombre.textContent = btn.getAttribute('data-nombre');
+            texto.textContent = btn.getAttribute('data-texto');
+            detalle.classList.remove('lb-cambia');
+          }, 200);
+          if(Object.keys(tocadas).length === estrellas.length){
+            cielo.classList.add('lb-armada');
+            completa.hidden = false;
+          }
+        });
+      });
+    }catch(errLibra){ /* si algo falla aquí, el resto de la página sigue funcionando */ }
   })();
 
 })();
